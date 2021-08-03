@@ -16,6 +16,8 @@
 		250229AD26B0189200340E58 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250229AC26B0189200340E58 /* CollectionViewCell.swift */; };
 		250229AF26B01DF000340E58 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250229AE26B01DF000340E58 /* PostModel.swift */; };
 		2542CF5A26B2C51900DB6BE9 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2542CF5926B2C51900DB6BE9 /* PostViewModel.swift */; };
+		255ECA5826B9C4D4004313B6 /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255ECA5726B9C4D4004313B6 /* EmptyCell.swift */; };
+		259EF33A26B8D85000ACD218 /* SpinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259EF33926B8D85000ACD218 /* SpinnerCell.swift */; };
 		25A08B7726B1A25600FC5933 /* API Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A08B7626B1A25600FC5933 /* API Service.swift */; };
 		A9C34E29064B2098C77ED13F /* Pods_cmtt_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8C316CF836834BA1F560F1 /* Pods_cmtt_test.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		250229AC26B0189200340E58 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		250229AE26B01DF000340E58 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		2542CF5926B2C51900DB6BE9 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		255ECA5726B9C4D4004313B6 /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
+		259EF33926B8D85000ACD218 /* SpinnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCell.swift; sourceTree = "<group>"; };
 		25A08B7626B1A25600FC5933 /* API Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API Service.swift"; sourceTree = "<group>"; };
 		6B8C316CF836834BA1F560F1 /* Pods_cmtt_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cmtt_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB5EC1A1B297ED0D1BED2A6 /* Pods-cmtt-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cmtt-test.release.xcconfig"; path = "Target Support Files/Pods-cmtt-test/Pods-cmtt-test.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				250229AC26B0189200340E58 /* CollectionViewCell.swift */,
+				259EF33926B8D85000ACD218 /* SpinnerCell.swift */,
+				255ECA5726B9C4D4004313B6 /* EmptyCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -262,8 +268,10 @@
 				250229AB26B0174600340E58 /* AllExtensions.swift in Sources */,
 				2502299B26B0154B00340E58 /* ViewController.swift in Sources */,
 				25A08B7726B1A25600FC5933 /* API Service.swift in Sources */,
+				259EF33A26B8D85000ACD218 /* SpinnerCell.swift in Sources */,
 				2502299726B0154B00340E58 /* AppDelegate.swift in Sources */,
 				2502299926B0154B00340E58 /* SceneDelegate.swift in Sources */,
+				255ECA5826B9C4D4004313B6 /* EmptyCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

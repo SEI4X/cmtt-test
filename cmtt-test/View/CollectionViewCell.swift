@@ -9,13 +9,121 @@ import UIKit
 
 class PostViewCell: UICollectionViewCell {
     
+    var viewController: ViewController? // Provider for animation
     private var imgCorp: CGFloat = 1
     private var imgWidth: CGFloat = 0
     private var imgHeight: CGFloat = 0
+    private var animatedView: UIView!
     private var imgHeightConstraint: NSLayoutConstraint!
     private var defaultImgHeightConstraint: CGFloat!
     private var imgTopConstraint: NSLayoutConstraint!
     private var defaultImgTopConstraint: CGFloat!
+    
+    lazy var width: NSLayoutConstraint = {
+        let width = contentView.widthAnchor.constraint(equalToConstant: bounds.size.width)
+        width.isActive = true
+        return width
+    }()
+    
+    private let headerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    private let footerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    private var hashtagIcon: UIImageView = {
+        let iv = UIImageView()
+        iv.layer.masksToBounds = true
+        iv.layer.cornerCurve = .continuous
+        iv.layer.cornerRadius = 6
+        iv.layer.borderWidth = 1
+        iv.layer.borderColor = CGColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.3)
+        return iv
+    }()
+    
+    private var hashtagIconBackground: UIView = {
+        let view = UIView()
+        view.layer.masksToBounds = true
+        view.layer.cornerCurve = .continuous
+        view.layer.cornerRadius = 6
+        return view
+    }()
+    
+    private var hashtagLable: UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = .black
+        lbl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        return lbl
+    }()
+    
+    private var authorLable: UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = .black
+        lbl.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        return lbl
+    }()
+    
+    private var dateLable: UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.65)
+        lbl.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        return lbl
+    }()
+    
+    private var titleLable: UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = .black
+        lbl.numberOfLines = 0
+        lbl.font = UIFont.systemFont(ofSize: 22, weight: .medium)
+        return lbl
+    }()
+    
+    private var postDescriptionLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = .black
+        lbl.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    
+    private var postImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.clipsToBounds = true
+        iv.contentMode = .scaleAspectFill
+        iv.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        iv.isUserInteractionEnabled = true
+        return iv
+    }()
+    
+    private var commentView = UIView()
+    
+    private var commentIcon: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "comment-icon")
+        iv.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.65)
+        return iv
+    }()
+    
+    private var commentLable: UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.65)
+        lbl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        return lbl
+    }()
+    
+    private var likesLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(red: 0.00, green: 0.67, blue: 0.07, alpha: 1.00)
+        lbl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        return lbl
+    }()
+    
     var viewModel: PostViewModel! {
         didSet {
             DispatchQueue.main.async {
@@ -29,6 +137,7 @@ class PostViewCell: UICollectionViewCell {
                     imgIdFromCell: self.viewModel?.getCathegoryImgId() ?? "")
             }
             
+            self.hashtagIconBackground.backgroundColor = viewModel.getCathegoryBorderColor()
             self.hashtagLable.text = viewModel?.getCathegory()
             self.authorLable.text = viewModel?.getAuthor()
             self.dateLable.text = viewModel?.getDate()
@@ -50,90 +159,6 @@ class PostViewCell: UICollectionViewCell {
             }
         }
     }
-    
-    lazy var width: NSLayoutConstraint = {
-        let width = contentView.widthAnchor.constraint(equalToConstant: bounds.size.width)
-        width.isActive = true
-        return width
-    }()
-    private let headerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
-    private let footerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
-    private var hashtagIcon: UIImageView = {
-        let iv = UIImageView()
-        iv.layer.masksToBounds = true
-        iv.layer.cornerCurve = .continuous
-        iv.layer.cornerRadius = 6
-        return iv
-    }()
-    private var hashtagLable: UILabel = {
-        let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        return lbl
-    }()
-    private var authorLable: UILabel = {
-        let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        return lbl
-    }()
-    private var dateLable: UILabel = {
-        let lbl = UILabel()
-        lbl.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.65)
-        lbl.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        return lbl
-    }()
-    private var titleLable: UILabel = {
-        let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.numberOfLines = 0
-        lbl.font = UIFont.systemFont(ofSize: 22, weight: .medium)
-        return lbl
-    }()
-    private var postDescriptionLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        lbl.numberOfLines = 0
-        return lbl
-    }()
-    private var postImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.clipsToBounds = true
-        iv.contentMode = .scaleAspectFill
-        iv.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        return iv
-    }()
-    private var commentView: UIView = {
-        let view = UIView()
-        return view
-    }()
-    private var commentIcon: UIImageView = {
-        let iv = UIImageView()
-        iv.image = UIImage(named: "comment-icon")
-        iv.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.65)
-        return iv
-    }()
-    private var commentLable: UILabel = {
-        let lbl = UILabel()
-        lbl.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.65)
-        lbl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        return lbl
-    }()
-    private var likesLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.textColor = UIColor(red: 0.00, green: 0.67, blue: 0.07, alpha: 1.00)
-        lbl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        return lbl
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -170,37 +195,55 @@ class PostViewCell: UICollectionViewCell {
             headerView.heightAnchor.constraint(equalToConstant: 50)
         ])
         
-        headerView.addSubview(hashtagIcon)
+        headerView.addSubview(hashtagIconBackground)
+        hashtagIconBackground.addSubview(hashtagIcon)
+        headerView.addSubview(hashtagLable)
+        headerView.addSubview(authorLable)
+        headerView.addSubview(dateLable)
+        
+        hashtagIconBackground.translatesAutoresizingMaskIntoConstraints = false
         hashtagIcon.translatesAutoresizingMaskIntoConstraints = false
+        hashtagLable.translatesAutoresizingMaskIntoConstraints = false
+        authorLable.translatesAutoresizingMaskIntoConstraints = false
+        dateLable.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Hashtag icon constraints
         NSLayoutConstraint.activate([
-            hashtagIcon.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 17),
-            hashtagIcon.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
+            hashtagIconBackground.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 17),
+            hashtagIconBackground.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
+            hashtagIconBackground.widthAnchor.constraint(equalToConstant: 22),
+            hashtagIconBackground.heightAnchor.constraint(equalToConstant: 22),
+            
+            hashtagIcon.centerYAnchor.constraint(equalTo: hashtagIconBackground.centerYAnchor),
+            hashtagIcon.centerXAnchor.constraint(equalTo: hashtagIconBackground.centerXAnchor),
             hashtagIcon.widthAnchor.constraint(equalToConstant: 22),
             hashtagIcon.heightAnchor.constraint(equalToConstant: 22)
         ])
         
-        headerView.addSubview(hashtagLable)
-        hashtagLable.translatesAutoresizingMaskIntoConstraints = false
+        // Hashtag lable constraints
         NSLayoutConstraint.activate([
             hashtagLable.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 16),
-            hashtagLable.leadingAnchor.constraint(equalTo: hashtagIcon.trailingAnchor, constant: 8),
-            hashtagLable.heightAnchor.constraint(equalToConstant: 24)
+            hashtagLable.leadingAnchor.constraint(equalTo: hashtagIconBackground.trailingAnchor, constant: 8),
+            hashtagLable.trailingAnchor.constraint(equalTo: authorLable.leadingAnchor, constant: -12),
+            hashtagLable.widthAnchor.constraint(lessThanOrEqualToConstant: 120),
+            hashtagLable.heightAnchor.constraint(equalToConstant: 24),
         ])
         
-        headerView.addSubview(authorLable)
-        authorLable.translatesAutoresizingMaskIntoConstraints = false
+        // Author lable constraints
         NSLayoutConstraint.activate([
             authorLable.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 17),
             authorLable.leadingAnchor.constraint(equalTo: hashtagLable.trailingAnchor, constant: 12),
-            authorLable.heightAnchor.constraint(equalToConstant: 22)
+            authorLable.trailingAnchor.constraint(equalTo: dateLable.leadingAnchor, constant: -12),
+            authorLable.heightAnchor.constraint(equalToConstant: 22),
         ])
         
-        headerView.addSubview(dateLable)
-        dateLable.translatesAutoresizingMaskIntoConstraints = false
+        // Date lable constraints
         NSLayoutConstraint.activate([
             dateLable.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 17),
             dateLable.leadingAnchor.constraint(equalTo: authorLable.trailingAnchor, constant: 12),
-            dateLable.heightAnchor.constraint(equalToConstant: 22)
+            dateLable.heightAnchor.constraint(equalToConstant: 22),
+            dateLable.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -16),
+            dateLable.widthAnchor.constraint(greaterThanOrEqualToConstant: 45)
         ])
     }
     
@@ -252,6 +295,8 @@ class PostViewCell: UICollectionViewCell {
             postImageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
             imgHeightConstraint
         ])
+        
+        postImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animate)))
     }
     
     private func configureFooter() {
@@ -300,6 +345,13 @@ class PostViewCell: UICollectionViewCell {
             commentLable.bottomAnchor.constraint(equalTo: commentView.bottomAnchor)
         ])
     }
+    
+    @objc private func animate() {
+        if postImageView.image != nil {
+            viewController?.animateImageView(postImageView: postImageView)
+        }
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         self.viewModel?.cancleImageLoading()
@@ -318,5 +370,7 @@ class PostViewCell: UICollectionViewCell {
         self.defaultImgHeightConstraint = 0
         self.imgCorp = 1
         self.imgWidth = 0
+        if self.animatedView != nil { self.animatedView.removeFromSuperview() }
+        self.animatedView = nil
     }
 }

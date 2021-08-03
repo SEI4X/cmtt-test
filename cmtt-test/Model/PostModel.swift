@@ -26,7 +26,7 @@ struct Post {
     let cathegory: String?
     let cathegoryImgId: String?
     let cathegoryBorderColor: String?
-    let date: String?
+    let date: Int?
     let commentsCount: String?
     let likesCount: String?
     
@@ -41,7 +41,7 @@ struct Post {
         self.cathegory = json["subsite"]["name"].stringValue
         self.cathegoryImgId = json["subsite"]["avatar"]["data"]["uuid"].stringValue
         self.cathegoryBorderColor = json["subsite"]["avatar"]["data"]["color"].stringValue
-        self.date = json["date"].stringValue
+        self.date = json["date"].intValue
         self.commentsCount = json["counters"]["comments"].stringValue
         self.likesCount = json["likes"]["summ"].stringValue
     }
