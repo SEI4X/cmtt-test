@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,12 @@
 		2502299B26B0154B00340E58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2502299A26B0154B00340E58 /* ViewController.swift */; };
 		250229A026B0154F00340E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2502299F26B0154F00340E58 /* Assets.xcassets */; };
 		250229A326B0154F00340E58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 250229A126B0154F00340E58 /* LaunchScreen.storyboard */; };
+		250229AB26B0174600340E58 /* AllExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250229AA26B0174600340E58 /* AllExtensions.swift */; };
+		250229AD26B0189200340E58 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250229AC26B0189200340E58 /* CollectionViewCell.swift */; };
+		250229AF26B01DF000340E58 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250229AE26B01DF000340E58 /* PostModel.swift */; };
+		2542CF5A26B2C51900DB6BE9 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2542CF5926B2C51900DB6BE9 /* PostViewModel.swift */; };
+		25A08B7726B1A25600FC5933 /* API Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A08B7626B1A25600FC5933 /* API Service.swift */; };
+		A9C34E29064B2098C77ED13F /* Pods_cmtt_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8C316CF836834BA1F560F1 /* Pods_cmtt_test.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,14 @@
 		2502299F26B0154F00340E58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		250229A226B0154F00340E58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		250229A426B0154F00340E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		250229AA26B0174600340E58 /* AllExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExtensions.swift; sourceTree = "<group>"; };
+		250229AC26B0189200340E58 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		250229AE26B01DF000340E58 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		2542CF5926B2C51900DB6BE9 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		25A08B7626B1A25600FC5933 /* API Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API Service.swift"; sourceTree = "<group>"; };
+		6B8C316CF836834BA1F560F1 /* Pods_cmtt_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cmtt_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB5EC1A1B297ED0D1BED2A6 /* Pods-cmtt-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cmtt-test.release.xcconfig"; path = "Target Support Files/Pods-cmtt-test/Pods-cmtt-test.release.xcconfig"; sourceTree = "<group>"; };
+		DDF280E9246123DE4785C299 /* Pods-cmtt-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cmtt-test.debug.xcconfig"; path = "Target Support Files/Pods-cmtt-test/Pods-cmtt-test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C34E29064B2098C77ED13F /* Pods_cmtt_test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +55,8 @@
 			children = (
 				2502299526B0154B00340E58 /* cmtt-test */,
 				2502299426B0154B00340E58 /* Products */,
+				BC68A519A9E826D7B7F70B87 /* Pods */,
+				C32D7D1D680643C3BC205FD3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +73,74 @@
 			children = (
 				2502299626B0154B00340E58 /* AppDelegate.swift */,
 				2502299826B0154B00340E58 /* SceneDelegate.swift */,
+				2542CF5826B2C48E00DB6BE9 /* Extension */,
+				2542CF5726B2C47D00DB6BE9 /* API */,
+				2542CF5626B2C47100DB6BE9 /* Model */,
+				2542CF5526B2C46100DB6BE9 /* ViewModel */,
+				2542CF5426B2C44A00DB6BE9 /* View */,
 				2502299A26B0154B00340E58 /* ViewController.swift */,
 				2502299F26B0154F00340E58 /* Assets.xcassets */,
 				250229A126B0154F00340E58 /* LaunchScreen.storyboard */,
 				250229A426B0154F00340E58 /* Info.plist */,
 			);
 			path = "cmtt-test";
+			sourceTree = "<group>";
+		};
+		2542CF5426B2C44A00DB6BE9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				250229AC26B0189200340E58 /* CollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2542CF5526B2C46100DB6BE9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2542CF5926B2C51900DB6BE9 /* PostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2542CF5626B2C47100DB6BE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				250229AE26B01DF000340E58 /* PostModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2542CF5726B2C47D00DB6BE9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				25A08B7626B1A25600FC5933 /* API Service.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		2542CF5826B2C48E00DB6BE9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				250229AA26B0174600340E58 /* AllExtensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BC68A519A9E826D7B7F70B87 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDF280E9246123DE4785C299 /* Pods-cmtt-test.debug.xcconfig */,
+				7AB5EC1A1B297ED0D1BED2A6 /* Pods-cmtt-test.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C32D7D1D680643C3BC205FD3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B8C316CF836834BA1F560F1 /* Pods_cmtt_test.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 250229A726B0154F00340E58 /* Build configuration list for PBXNativeTarget "cmtt-test" */;
 			buildPhases = (
+				9ECB46406B1BC9604634D7A9 /* [CP] Check Pods Manifest.lock */,
 				2502298F26B0154B00340E58 /* Sources */,
 				2502299026B0154B00340E58 /* Frameworks */,
 				2502299126B0154B00340E58 /* Resources */,
+				2CECD12B0CA9ADC72F0D2790 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,12 +209,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2CECD12B0CA9ADC72F0D2790 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cmtt-test/Pods-cmtt-test-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cmtt-test/Pods-cmtt-test-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cmtt-test/Pods-cmtt-test-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9ECB46406B1BC9604634D7A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cmtt-test-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2502298F26B0154B00340E58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2542CF5A26B2C51900DB6BE9 /* PostViewModel.swift in Sources */,
+				250229AD26B0189200340E58 /* CollectionViewCell.swift in Sources */,
+				250229AF26B01DF000340E58 /* PostModel.swift in Sources */,
+				250229AB26B0174600340E58 /* AllExtensions.swift in Sources */,
 				2502299B26B0154B00340E58 /* ViewController.swift in Sources */,
+				25A08B7726B1A25600FC5933 /* API Service.swift in Sources */,
 				2502299726B0154B00340E58 /* AppDelegate.swift in Sources */,
 				2502299926B0154B00340E58 /* SceneDelegate.swift in Sources */,
 			);
@@ -271,6 +399,7 @@
 		};
 		250229A826B0154F00340E58 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDF280E9246123DE4785C299 /* Pods-cmtt-test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -290,6 +419,7 @@
 		};
 		250229A926B0154F00340E58 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AB5EC1A1B297ED0D1BED2A6 /* Pods-cmtt-test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
